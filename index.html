@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title></title>
+</head>
+
+<body>
+    <div class="container">
+
+        <div class="map-stage">
+            <h1>Интерактивная карта по :</h1>
+            <img src="image/large-administrative-map-of-belarus-small.jpg" alt="map">
+
+            <div class="hotspot-layer"></div>
+        </div>
+
+        <div class="popup-overlay" hidden></div>
+
+        <div class="map-popup" hidden>
+            <button type="button" class="popup-close" aria-label="Закрыть">×</button>
+            <h2 class="popup-title"></h2>
+            <p class="popup-text"></p>
+        </div>
+
+    </div>
+    <script src="code.js"></script>
+</body>
+
+</html>
