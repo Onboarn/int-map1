@@ -3,7 +3,7 @@ const hotspots = [
         id: "cafe",
         x: 72.5,
         y: 71.0,
-        iconUrl: "image/1.png",
+        iconUrl: "image/v.png",
         title: "Кафе",
         text: "Открыто с 9 до 18. Первый этаж, рядом с входом.",
     },
