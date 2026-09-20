@@ -2,7 +2,7 @@ const hotspots = [
     {
         id: "cafe",
         x: 65,
-        y: 72.5,
+        y: 72,
         iconUrl: "image/v.png",
         titleImg: "image/1.png",
         title: "{{img}}В парке существует 37 видов рыб.",
