@@ -1,37 +1,49 @@
 html, body {
-  /* Разрешает скролл по вертикали и горизонтали, но отключает зум */
-  touch-action: pan-x pan-y; 
+
+  margin: 0;
+  height: 100%;
+  overflow-x: hidden;
 }
 
-.container{
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
+.container {
+  height: 100vh;
+  display: flex;
+  justify-content: center; 
+  align-items: center;     
+  padding: 16px;
+  box-sizing: border-box;
+  flex-direction: column;
+  align-items: center;
 }
+
 .map-stage {
-  position: relative; /* точка отсчёта для кружков */
-  display: inline-block; /* рамка по размеру картинки, не шире */
+  position: relative;
+  display: inline-block;
+  width: auto;
+  max-width: 100%;
 }
 
 .map-stage img {
   display: block;
-  max-width: 100%;
+  width: auto;
   height: auto;
+  max-width: 100%;
+  max-height: calc(100vh - 32px);
 }
 
 .hotspot-layer {
   position: absolute;
-  inset: 0; /* стекло ровно поверх картинки */
+  inset: 0;
   pointer-events: none;
 }
 
 .marker {
-  position: absolute; /* вот это растаскивает кружки */
+  position: absolute; 
   transform: translate(-50%, -50%);
   width: 32px;
   height: 32px;
   padding: 0;
-  border: 5 solid black;
+  border: 0px solid black;
   border-radius: 50%;
   background: transparent;
   cursor: pointer;
@@ -46,26 +58,46 @@ html, body {
 }
 
 .marker.is-active {
-  border-color: #ffcc00;    /* открытая точка */
+  border-color: #ffcc00;  
 }
 .map-popup {
   position: fixed;
   z-index: 20;
+  
+
   min-width: 220px;
   max-width: 280px;
   padding: 28px 16px 16px;
   background: #fff;
   border-radius: 20px;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
-  opacity: 0.7;
+  opacity: 0.9;
 }
 
-.popup-title {
-  margin: 0 0 8px;
-  font-size: 20px;
-  font-family: inherit;
-  color: #111;
+
+@media (max-width: 699px) {
+  html, body {
+    overflow: auto;
+  }
+
+  .container {
+    height: auto;
+    min-height: 100vh;
+    align-items: flex-start;
+    padding: 12px;
+  }
+
+  .map-stage {
+    display: block;
+    width: 100%;
+  }
+
+  .map-stage img {
+    width: 100%;
+    max-height: none;
+  }
 }
+
 
 .popup-text {
   margin: 0;
@@ -82,4 +114,20 @@ html, body {
   background: transparent;
   font-size: 20px;
   cursor: pointer;
+}
+.popup-title {
+  display: block;
+  margin: 0 0 8px;
+  font-size: 20px;
+  font-weight: 700;
+  color: #1a73e8;
+  text-decoration: none;
+}
+
+.popup-title[href] {
+  text-decoration: underline;
+}
+
+.popup-title[href]:hover {
+  color: #0b57d0;
 }
