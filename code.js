@@ -147,40 +147,46 @@ function openPopup(id) {
     highlightActiveMarker();
 }
 
-function placePopupNearMarker(id) {
-    const isMobile = window.innerWidth < 700;
-
-    if (isMobile) {
-  popup.style.left = "50%";
-  popup.style.right = "auto";
-  popup.style.top = "auto";
-  popup.style.bottom = "16px";
-  popup.style.transform = "translateX(-50%)";
-  popup.style.width = "calc(100vw - 32px)";
-  popup.style.maxWidth = "320px";
-  return;
+function isMobileView() {
+  return window.innerWidth < 900;
 }
 
-popup.style.transform = "";
-popup.style.maxWidth = "";
+function placePopupNearMarker(id) {
+  if (isMobileView()) {
+    popup.style.left = "50%";
+    popup.style.right = "auto";
+    popup.style.top = "auto";
+    popup.style.bottom = "16px";
+    popup.style.transform = "translateX(-50%)";
+    popup.style.width = "calc(100vw - 24px)";
+    popup.style.maxWidth = "360px";
+    return;
+  }
 
-    const marker = layer.querySelector('.marker[data-id="' + id + '"]');
-    const r = marker.getBoundingClientRect();
-    const gap = 12;
+  popup.style.transform = "";
+  popup.style.right = "auto";
+  popup.style.bottom = "auto";
+  popup.style.width = "";
+  popup.style.maxWidth = "";
 
-    let left = r.right + gap;
-    let top = r.top + r.height / 2 - popup.offsetHeight / 2;
+  const marker = layer.querySelector('.marker[data-id="' + id + '"]');
+  const r = marker.getBoundingClientRect();
+  const gap = 12;
 
-    if (left + popup.offsetWidth > window.innerWidth - 8) {
-        left = r.left - gap - popup.offsetWidth;
-    }
-    if (top + popup.offsetHeight > window.innerHeight - 8) {
-        top = window.innerHeight - popup.offsetHeight - 8;
-    }
-    if (top < 8) top = 8;
+  let left = r.right + gap;
+  let top = r.top + r.height / 2 - popup.offsetHeight / 2;
 
-    popup.style.left = left + "px";
-    popup.style.top = top + "px";
+  if (left + popup.offsetWidth > window.innerWidth - 8) {
+    left = r.left - gap - popup.offsetWidth;
+  }
+  if (left < 8) left = 8;
+  if (top + popup.offsetHeight > window.innerHeight - 8) {
+    top = window.innerHeight - popup.offsetHeight - 8;
+  }
+  if (top < 8) top = 8;
+
+  popup.style.left = left + "px";
+  popup.style.top = top + "px";
 }
 
 function closePopup() {
