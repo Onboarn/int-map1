@@ -4,7 +4,7 @@ const hotspots = [
         x: 65,
         y: 71.5,
         iconUrl: "image/v.png",
-        titleImg: "image/1.png",
+        titleImg: "image/ml.png",
         title: "{{img}}В парке существует 37 видов рыб.",
         url: "https://ru.wikipedia.org/wiki/%D0%A0%D1%8B%D0%B1%D1%8B",
     },
@@ -13,8 +13,8 @@ const hotspots = [
         x: 18.0,
         y: 36.0,
         iconUrl: "image/v.png",
-        titleImg: "image/.png",
-        title: "Фауна парка включает246 видов птиц.",
+        titleImg: "image/pt.png",
+        title: "{{img}}Фауна парка включает246 видов птиц.",
         url: "https://ru.wikipedia.org/wiki/%D0%9F%D1%82%D0%B8%D1%86%D1%8B",
     },
     {
@@ -22,8 +22,8 @@ const hotspots = [
         x: 50.0,
         y: 43.0,
         iconUrl: "image/v.png",
-        titleImg: "image/fish.png",
-        title: "Парк включает 51 вид млекопитающих.",
+        titleImg: "image/ml.png",
+        title: "{{img}}Парк включает 51 вид млекопитающих.",
         url: "https://ru.wikipedia.org/wiki/%D0%9C%D0%BB%D0%B5%D0%BA%D0%BE%D0%BF%D0%B8%D1%82%D0%B0%D1%8E%D1%89%D0%B8%D0%B5",
     },
     {
@@ -31,8 +31,8 @@ const hotspots = [
         x: 13,
         y: 56,
         iconUrl: "image/v.png",
-        titleImg: "image/fish.png",
-        title: "Флора включает более 950 видов сосудистых растений.",
+        titleImg: "image/sosudrast.png",
+        title: "{{img}}Флора включает более 950 видов сосудистых растений.",
         url: "https://ru.wikipedia.org/wiki/%D0%A1%D0%BE%D1%81%D1%83%D0%B4%D0%B8%D1%81%D1%82%D1%8B%D0%B5_%D1%80%D0%B0%D1%81%D1%82%D0%B5%D0%BD%D0%B8%D1%8F",
     },
     {
@@ -40,8 +40,8 @@ const hotspots = [
         x: 13,
         y: 50,
         iconUrl: "image/v.png",
-        titleImg: "image/fish.png",
-        title: "В парке есть 196 видов мхов.",
+        titleImg: "image/mox.png",
+        title: "{{img}}В парке есть 196 видов мхов.",
         url: "https://ru.wikipedia.org/wiki/%D0%9C%D1%85%D0%B8",
     },
     {
@@ -49,8 +49,17 @@ const hotspots = [
         x: 33,
         y: 46,
         iconUrl: "image/v.png",
-        titleImg: "image/fish.png",
-        title: "В парке обитают 11 видов земноводных.",
+        titleImg: "image/zem.png",
+        title: "{{img}}В парке обитают 11 видов земноводных.",
+        url: "https://ru.wikipedia.org/wiki/%D0%97%D0%B5%D0%BC%D0%BD%D0%BE%D0%B2%D0%BE%D0%B4%D0%BD%D1%8B%D0%B5",
+    },
+    {
+        id: "gg",
+        x: 57,
+        y: 56,
+        iconUrl: "image/v.png",
+        titleImg: "image/pr.png",
+        title: "{{img}}В парке обитают 7 видов пресмыкающихся.",
         url: "https://ru.wikipedia.org/wiki/%D0%97%D0%B5%D0%BC%D0%BD%D0%BE%D0%B2%D0%BE%D0%B4%D0%BD%D1%8B%D0%B5",
     },
 ];
@@ -142,18 +151,13 @@ function placePopupNearMarker(id) {
     const isMobile = window.innerWidth < 700;
 
     if (isMobile) {
-  popup.style.left = "50%";
-  popup.style.right = "auto";
-  popup.style.top = "auto";
-  popup.style.bottom = "16px";
-  popup.style.transform = "translateX(-50%)";
-  popup.style.width = "calc(100vw - 32px)";
-  popup.style.maxWidth = "320px";
-  return;
-}
-
-popup.style.transform = "";
-popup.style.maxWidth = "";
+        popup.style.left = "12px";
+        popup.style.right = "12px";
+        popup.style.top = "auto";
+        popup.style.bottom = "12px";
+        popup.style.width = "auto";
+        return;
+    }
 
     popup.style.right = "auto";
     popup.style.bottom = "auto";
