@@ -151,17 +151,18 @@ function placePopupNearMarker(id) {
     const isMobile = window.innerWidth < 700;
 
     if (isMobile) {
-        popup.style.left = "12px";
-        popup.style.right = "12px";
-        popup.style.top = "auto";
-        popup.style.bottom = "12px";
-        popup.style.width = "auto";
-        return;
-    }
+  popup.style.left = "50%";
+  popup.style.right = "auto";
+  popup.style.top = "auto";
+  popup.style.bottom = "16px";
+  popup.style.transform = "translateX(-50%)";
+  popup.style.width = "calc(100vw - 32px)";
+  popup.style.maxWidth = "320px";
+  return;
+}
 
-    popup.style.right = "auto";
-    popup.style.bottom = "auto";
-    popup.style.width = "";
+popup.style.transform = "";
+popup.style.maxWidth = "";
 
     const marker = layer.querySelector('.marker[data-id="' + id + '"]');
     const r = marker.getBoundingClientRect();
