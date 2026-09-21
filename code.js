@@ -124,12 +124,6 @@ function openPopup(id) {
         popupTitle.textContent = spot.title.replace("{{img}}", "");
     }
 
-    if (spot.title.includes("{{img}}")) {
-        popupTitle.innerHTML = spot.title.replace("{{img}}", icon);
-    } else {
-        popupTitle.textContent = spot.title;
-    }
-
 
 
     if (spot.url) {
