@@ -96,6 +96,18 @@ html, body {
     width: 100%;
     max-height: none;
   }
+
+  .map-popup {
+    left: 50%;
+    right: auto;
+    top: auto;
+    bottom: 16px;
+    transform: translateX(-50%);
+    width: calc(100vw - 32px);
+    max-width: 320px;
+    box-sizing: border-box;
+  }
+
 }
 
 
