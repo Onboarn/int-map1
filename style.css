@@ -70,8 +70,18 @@ html, body {
   opacity: 0.9;
   text-align: center;
   box-sizing: border-box;
+  overflow: hidden;
 }
 
+.map-popup img,
+.popup-inline {
+  max-width: 100%;
+  height: auto;
+  max-height: 160px;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto 8px;
+}
 
 @media (max-width: 699px) {
   html, body {
